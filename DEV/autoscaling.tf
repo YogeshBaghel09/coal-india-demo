@@ -201,7 +201,7 @@ resource "aws_lb_target_group" "Hitachi-DEV-TG" {
   name     = "Hitachi-DEV-TG"
   port     = 80
  protocol = "HTTP"
-  vpc_id   = "vpc-0a9f11ae4c267aa39"
+  vpc_id   = "vpc-0258ea71d4876575b"
   health_check {
     interval            = 10
     path                = "/"
