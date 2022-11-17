@@ -1,7 +1,7 @@
 resource "aws_security_group" "Hitachi-PROD" {
   name        = "Hitachi-PROD"
   description = "Hitachi-PROD"
-  vpc_id      = "vpc-0a9f11ae4c267aa39"
+  vpc_id      = "vpc-0258ea71d4876575b"
 
  ingress {
     from_port        = 443
@@ -40,7 +40,7 @@ Environment = "PROD"
 Application_Owner = "Hitachi"
 Cost_Center = "Production"
 Application_Name = "Web"
-Partner_Name = "ACC"
+Partner_Name = "Hitachi"
 Department = "Infra"
 }
 }
