@@ -1,10 +1,10 @@
 provider "aws" {
-region = "us-east-1"
+region = "ap-south-1"
 }
 resource "aws_launch_configuration" "Hitachi-DEV" {
   #name_prefix = "Hitachi-DEV"
    name = "Hitachi-DEV-LC"
-  image_id = "ami-06640050dc3f556bb" # Amazon Linux 2 AMI (HVM), SSD Volume Type
+  image_id = "ami-074dc0a6f6c764218" # Amazon Linux 2 AMI (HVM), SSD Volume Type
   instance_type = "t3a.micro"
   iam_instance_profile = "ssm"
   key_name = "coalindia1"
@@ -41,8 +41,8 @@ resource "aws_autoscaling_group" "Hitachi-DEV" {
   metrics_granularity = "1Minute"
 
   vpc_zone_identifier  = [
-    "subnet-0386b39bb9417b6c5",
-    "subnet-0acd23e31fb17a460"
+    "subnet-06a0cfa8ecd1ae2c4",
+    "subnet-023f1d68d0e8e82fc"
   ]
   #vpc_zone_identifier = ["${aws_subnet.cidr_private_subnet_a.id}"]
 
@@ -78,7 +78,7 @@ tags = [
 	},
 	{
     "key" = "Partner Name"
-    "value" = "ACC"
+    "value" = "Hitachi"
     "propagate_at_launch" = true
 	},
 	{
@@ -217,8 +217,8 @@ resource "aws_lb" "lb_hitachi-dev" {
   internal           = false
   load_balancer_type = "application"
   subnets            = [
-    "subnet-0386b39bb9417b6c5",
-    "subnet-0acd23e31fb17a460"
+    "subnet-06a0cfa8ecd1ae2c4",
+    "subnet-023f1d68d0e8e82fc"
   ]
   security_groups    = ["${aws_security_group.Hitachi-DEV.id}"]
   enable_deletion_protection = false
