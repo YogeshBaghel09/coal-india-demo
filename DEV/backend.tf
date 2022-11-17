@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket = "coalindia-cf"
+    bucket = "coal-india-demo-s3-bucket"
     #dynamodb_table = "s3-terraform-eks-state-lock"
-    key     = "acc-testing/dev/terraform.tfstate"
-    region  = "us-east-1"
+    key     = "terraform.tfstate"
+    region  = "ap-south-1"
     encrypt = true
   }
 }
