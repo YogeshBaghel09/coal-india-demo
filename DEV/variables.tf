@@ -26,15 +26,15 @@ variable "cidr_private_subnet_b" {
 
 variable "az_a" {
   description = "Availablilty zone for the subnet"
-  default     = "us-east-1a"
+  default     = "ap-south-1a"
 }
 variable "az_b" {
   description = "Availablilty zone for the subnet"
-  default     = "us-east-1b"
+  default     = "ap-south-1b"
 }
 //variable "az_c" {
   //description = "Availablilty zone for the subnet"
-  //default     = "us-east-1c"
+  //default     = "ap-south-1c"
 //}
 //variable "az_d" {
   //description = "Availablilty zone for the subnet"
