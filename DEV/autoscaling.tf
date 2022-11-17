@@ -4,7 +4,7 @@ region = "ap-south-1"
 resource "aws_launch_configuration" "Hitachi-DEV" {
   #name_prefix = "Hitachi-DEV"
    name = "Hitachi-DEV-LC"
-  image_id = "ami-06640050dc3f556bb" # Amazon Linux 2 AMI (HVM), SSD Volume Type
+  image_id = "ami-05c8ca4485f8b138a" # Amazon Linux 2 AMI (HVM), SSD Volume Type
   instance_type = "t3a.micro"
   iam_instance_profile = "AmazonSSMRoleForInstancesQuickSetup"
   key_name = "Coal-India-Jenkins-Server-Key"
