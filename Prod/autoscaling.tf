@@ -3,7 +3,7 @@ region = "ap-south-1"
 }
 resource "aws_launch_template" "Hitachi-PROD" {
   name_prefix = "Hitachi-Prod-LC"
-  image_id = "ami-074dc0a6f6c764218"
+  image_id = "ami-06640050dc3f556bb"
   iam_instance_profile {
     name = "AmazonSSMRoleForInstancesQuickSetup"
   }
