@@ -1,14 +1,14 @@
 provider "aws" {
-region = "us-east-1"
+region = "ap-south-1"
 }
 resource "aws_launch_template" "Hitachi-PROD" {
   name_prefix = "Hitachi-Prod-LC"
-  image_id = "ami-06640050dc3f556bb"
+  image_id = "ami-074dc0a6f6c764218"
   iam_instance_profile {
-    name = "ssm"
+    name = "AmazonSSMRoleForInstancesQuickSetup"
   }
   instance_type = "t3a.micro"
-  key_name = "coalindia1"
+  key_name = "Coal-India-Jenkins-Server-Key"
   vpc_security_group_ids = [aws_security_group.Hitachi-PROD.id]
   block_device_mappings {
     device_name = "/dev/sda1"
@@ -47,8 +47,8 @@ resource "aws_autoscaling_group" "Hitachi-PROD" {
   #  "subnet-097d414e4bf4e51e4"
   #]
   vpc_zone_identifier  = [
-    "subnet-0386b39bb9417b6c5",
-    "subnet-0acd23e31fb17a460"
+    "subnet-06a0cfa8ecd1ae2c4",
+    "subnet-023f1d68d0e8e82fc"
   ]
 
   # Required to redeploy without an outage.
@@ -83,7 +83,7 @@ tags = [
 	},
 	{
     "key" = "Partner Name"
-    "value" = "ACC"
+    "value" = "Hitachi"
     "propagate_at_launch" = true
 	},
 	{
@@ -206,7 +206,7 @@ resource "aws_lb_target_group" "Hitachi-PROD-TG" {
   name     = "Hitachi-PROD-TG"
   port     = 8080
  protocol = "HTTP"
-  vpc_id   = "vpc-0a9f11ae4c267aa39"
+  vpc_id   = "vpc-0258ea71d4876575b"
   health_check {
     interval            = 10
     path                = "/"
@@ -222,8 +222,8 @@ resource "aws_lb" "lb_hitachi" {
   internal           = false
   load_balancer_type = "application"
   subnets            = [
-    "subnet-0386b39bb9417b6c5",
-    "subnet-0acd23e31fb17a460"
+    "subnet-06a0cfa8ecd1ae2c4",
+    "subnet-023f1d68d0e8e82fc"
   ]
   security_groups    = ["${aws_security_group.Hitachi-PROD.id}"]
   enable_deletion_protection = false
