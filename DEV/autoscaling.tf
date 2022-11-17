@@ -6,8 +6,8 @@ resource "aws_launch_configuration" "Hitachi-DEV" {
    name = "Hitachi-DEV-LC"
   image_id = "ami-074dc0a6f6c764218" # Amazon Linux 2 AMI (HVM), SSD Volume Type
   instance_type = "t3a.micro"
-  iam_instance_profile = "ssm"
-  key_name = "coalindia1"
+  iam_instance_profile = "AmazonSSMRoleForInstancesQuickSetup"
+  key_name = "Coal-India-Jenkins-Server-Key"
   #security_groups = ["sg-0f26eebf1b3476c10"]
   security_groups = [aws_security_group.Hitachi-DEV.id]
     root_block_device {
