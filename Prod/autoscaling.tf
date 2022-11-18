@@ -21,7 +21,7 @@ resource "aws_launch_template" "Hitachi-PROD" {
 }
 resource "aws_autoscaling_group" "Hitachi-PROD" {
   name = "Hitachi-PROD-ASG"
-  min_size             = 2
+  min_size             = 3
   desired_capacity     = 3
   max_size             = 6
 
